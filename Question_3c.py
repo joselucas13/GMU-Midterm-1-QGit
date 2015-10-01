@@ -29,13 +29,13 @@ ref = ha.HUBO_REF()
 mov1 = 0
 while mov1 <= 0.16:
   mov1 += 0.016
-	ref.ref[ha.LHR] = mov1
-	ref.ref[ha.RHR] = mov1
-	ref.ref[ha.LAR]= -mov1
-	ref.ref[ha.RAR] = -mov1
-	r.put(ref)
-	#print mov1
-	time.sleep(2)
+  ref.ref[ha.LHR] = mov1
+  ref.ref[ha.RHR] = mov1
+  ref.ref[ha.LAR]= -mov1
+  ref.ref[ha.RAR] = -mov1
+  r.put(ref)
+  #print mov1
+  time.sleep(2)
 
 time.sleep(5)
 
@@ -46,9 +46,9 @@ while mov2 <= 0.8:
   ref.ref[ha.LKN] = 2.0*mov2
   ref.ref[ha.LHP] = -1.0*mov2
   ref.ref[ha.LAP]= -1.0*mov2
-	r.put(ref)
-	#print mov2
-	time.sleep(2)
+  r.put(ref)
+  #print mov2
+  time.sleep(2)
 
 time.sleep(5)
 
@@ -61,34 +61,35 @@ count = 0
 ang1 = math.asin(amplitude/0.3);
 
 while count < 40:
- 	t1 = time.time()
+
+  t1 = time.time()
   #print t1
 
   mov4 = (ang1/2)*(math.sin(math.pi/2 + count*0.1*math.pi) - 1)
   ref.ref[ha.RKN] = -1.2*mov4
   ref.ref[ha.RHP] = +0.6*mov4
- 	ref.ref[ha.RAP] = +0.6*mov4
- 	r.put(ref)
+  ref.ref[ha.RAP] = +0.6*mov4
+  r.put(ref)
 	 
- 	t2 = time.time()
+  t2 = time.time()
   #print t2
- 	temp = period/loop_freq - (t2 - t1)
+  temp = period/loop_freq - (t2 - t1)
   if temp < 0:
- 		temp = 0
- 	time.sleep(temp)
- 	count += 1
+      temp = 0
+  time.sleep(temp)
+  count += 1
 
 time.sleep(5)
 
 # Put the left leg back to the ground
 while mov2 >= 0.0:
-	mov2 -= 0.1
+  mov2 -= 0.1
   ref.ref[ha.LKN] = 2.0*mov2
   ref.ref[ha.LHP] = -1.0*mov2
   ref.ref[ha.LAP]= -1.0*mov2
-	r.put(ref)
-	#print mov2
-	time.sleep(2)
+  r.put(ref)
+  #print mov2
+  time.sleep(2)
 
 time.sleep(5)
 
@@ -103,14 +104,14 @@ r.put(ref)
 
 # Change the center of mass to the center of the robot
 while mov1 >= -0.0:
-	mov1 -= 0.016
-	ref.ref[ha.LHR] = mov1
-	ref.ref[ha.RHR] = mov1
-	ref.ref[ha.LAR]= -mov1
-	ref.ref[ha.RAR] = -mov1
-	r.put(ref)
-	#print mov1
-	time.sleep(2)
+   mov1 -= 0.016
+   ref.ref[ha.LHR] = mov1
+   ref.ref[ha.RHR] = mov1
+   ref.ref[ha.LAR]= -mov1
+   ref.ref[ha.RAR] = -mov1
+   r.put(ref)
+   #print mov1
+   time.sleep(2)
 
 # Make sure some joints are zero 
 ref.ref[ha.LHR] = 0.0
@@ -131,38 +132,38 @@ time.sleep(20)
 
 # Change the center on mass of the robot to be on top of the left leg
 while mov1 >= -0.16:
-	mov1 -= 0.016
-	ref.ref[ha.LHR] = mov1
-	ref.ref[ha.RHR] = mov1
-	ref.ref[ha.LAR]= -mov1
-	ref.ref[ha.RAR] = -mov1
-	r.put(ref)
-	#print mov1
-	time.sleep(2)
+    mov1 -= 0.016
+    ref.ref[ha.LHR] = mov1
+    ref.ref[ha.RHR] = mov1
+    ref.ref[ha.LAR]= -mov1
+    ref.ref[ha.RAR] = -mov1
+    r.put(ref)
+    #print mov1
+    time.sleep(2)
 
 # Take the right leg out of the ground
 while mov2 <= 0.5:
-	mov2 += 0.1
+  mov2 += 0.1
   ref.ref[ha.RKN] = 2.0*mov2
   ref.ref[ha.RHP] = -1.0*mov2
   ref.ref[ha.RAP]= -1.0*mov2
-	r.put(ref)
-	#print mov2
-	time.sleep(2)
+  r.put(ref)
+  #print mov2
+  time.sleep(2)
 
 time.sleep(5)
 
 # Move body to be almost parallel to the ground
 mov3 = 0
 while mov3 <= 0.5:
-	mov3 += 0.1
+  mov3 += 0.1
   ref.ref[ha.RKN] = -1.7*mov3 + 2.0*mov2
   ref.ref[ha.RHP] = 1.7*mov3 -1.0*mov2
   ref.ref[ha.LSR] = 1.2*mov3
   ref.ref[ha.RSR] = -1.2*mov3
-	ref.ref[ha.LHP] = -1.5*mov3
-	r.put(ref)
-	time.sleep(6)
+  ref.ref[ha.LHP] = -1.5*mov3
+  r.put(ref)
+  time.sleep(6)
 
 time.sleep(5)
 
@@ -176,47 +177,47 @@ mov4 = 0
 ang1 = math.asin(amplitude/0.3);
 
 while count < 40:	
- 	t1 = time.time()
+  t1 = time.time()
   #print t1
 
   mov4 = (ang1/2)*(math.sin(math.pi/2 + count*0.1*math.pi) - 1)
   ref.ref[ha.LKN] = -2.0*mov4
   ref.ref[ha.LHP] = +1.0*mov4 -1.7*mov3  	
- 	ref.ref[ha.LAP] = +1.0*mov4
- 	r.put(ref)
+  ref.ref[ha.LAP] = +1.0*mov4
+  r.put(ref)
 	 
- 	t2 = time.time()
+  t2 = time.time()
   #print t2	
- 	temp = period/20 - (t2 - t1)
+  temp = period/20 - (t2 - t1)
   if temp < 0:
- 		temp = 0
- 	time.sleep(temp)
- 	count += 1
+     temp = 0
+  time.sleep(temp)
+  count += 1
 
 time.sleep(5)
 
 # Take the robot out of the parallel position to the ground
 while mov3 >= 0.0:
-	mov3 -= 0.1
- 	ref.ref[ha.RKN] = -1.7*mov3 + 2.0*mov2
- 	ref.ref[ha.RHP] = 1.7*mov3 -1.0*mov2
+  mov3 -= 0.1
+  ref.ref[ha.RKN] = -1.7*mov3 + 2.0*mov2
+  ref.ref[ha.RHP] = 1.7*mov3 -1.0*mov2
   ref.ref[ha.LSR] = 1.2*mov3
   ref.ref[ha.RSR] = -1.2*mov3
-	ref.ref[ha.LHP] = -1.5*mov3
-	r.put(ref)
-	time.sleep(6)
+  ref.ref[ha.LHP] = -1.5*mov3
+  r.put(ref)
+  time.sleep(6)
 
 time.sleep(5)
 
 # Put the right leg on the ground
 while mov2 >= 0.0:
-	mov2 -= 0.1
-    	ref.ref[ha.RKN] = 2.0*mov2
-    	ref.ref[ha.RHP] = -1.0*mov2
-    	ref.ref[ha.RAP]= -1.0*mov2
-	r.put(ref)
-	print mov2
-	time.sleep(6)
+   mov2 -= 0.1
+   ref.ref[ha.RKN] = 2.0*mov2
+   ref.ref[ha.RHP] = -1.0*mov2
+   ref.ref[ha.RAP]= -1.0*mov2
+   r.put(ref)
+   print mov2
+   time.sleep(6)
 
 time.sleep(5)
 
@@ -231,15 +232,14 @@ r.put(ref)
 
 # Change the center of mass to the center of the robot
 while mov1 <= 0.0:
-	mov1 += 0.016
-	ref.ref[ha.LHR] = mov1
-	ref.ref[ha.RHR] = mov1
-	ref.ref[ha.LAR]= -mov1
-	ref.ref[ha.RAR] = -mov1
-	r.put(ref)
-	print mov1
-	time.sleep(2)
-
+  mov1 += 0.016
+  ref.ref[ha.LHR] = mov1
+  ref.ref[ha.RHR] = mov1
+  ref.ref[ha.LAR]= -mov1
+  ref.ref[ha.RAR] = -mov1
+  r.put(ref)
+  print mov1
+  time.sleep(2)
 
 # Close the connection to the channels
 r.close()
