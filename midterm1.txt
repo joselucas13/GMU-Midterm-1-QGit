@@ -1,1 +1,6 @@
 
+$ git checkout -b GMU-Midterm-1-QGit
+
+$ touch midterm1.txt
+
+$ git push origin GMU-Midterm-1-QGit
